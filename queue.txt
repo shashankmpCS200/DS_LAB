@@ -1,0 +1,64 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define size 3
+int en=-1,fr=0,stack[size],ch,item,del;
+
+void push();
+int pop();
+void display();
+
+int main(){
+    while(1){
+        printf("1.push 2.pop 3.display 4.exit\n");
+        printf("enter your choice\n");
+        scanf("%d",&ch);
+        switch(ch){
+            case 1: push();
+                    break;
+            case 2: del=pop();
+                    printf("the poped element is %d\n",del);
+                    break;
+            case 3: display();
+                    break;
+            case 4: exit(0);
+            default: printf("invalid inputs\n");
+        }
+    }
+}
+
+void push(){
+    if(en==size-1){
+        printf("queue  overflow\n");
+    }
+    else{
+        printf("enter your choice\n");
+        scanf("%d",&item);
+        en++;
+        stack[en]=item;
+    }
+}
+int pop(){
+    int d;
+    if(fr==size){
+        printf("queue is empty so\n");
+        return -1;
+    }
+    else{
+        d=stack[fr];
+        fr++;
+        return d;
+    }
+}
+void display(){
+     if(fr==size){
+        printf("queue is empty so\n");
+        return -1;
+    }
+    else{
+        for(int i=fr;i<size;i++){
+            printf("%d ",stack[i]);
+        }
+        printf("\n");
+    }
+    
+}
